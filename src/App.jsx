@@ -24,7 +24,7 @@ export default function App() {
   const [hk, setHk] = useState(22); // Hari Kerja default
   const [isHkEdited, setIsHkEdited] = useState(false); // Mode auto atau manual untuk HK
   const [onTimeLimit, setOnTimeLimit] = useState('08:00:59'); // Batas On Time Baru
-  const [maxCi, setMaxCi] = useState('09:00:00');
+  const [maxCi, setMaxCi] = useState('09:00:59');
   const [minCo, setMinCo] = useState('15:00:00');
   
   // Overrides & Mappings
