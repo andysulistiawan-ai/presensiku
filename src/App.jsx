@@ -253,7 +253,8 @@ export default function App() {
         totalI: 0,
         totalS: 0,
         totalC: 0,
-        totalTerlambat: 0 // Menyimpan jumlah hari terlambat (Batas On Time s/d MAX CI)
+        totalTerlambat: 0, // Menyimpan jumlah hari terlambat (Batas On Time s/d MAX CI)
+        totalNoCo: 0 // Menyimpan jumlah NO CO (checkout kosong)
       };
 
       sortedDates.forEach(date => {
@@ -304,6 +305,7 @@ export default function App() {
         if (finalStatus === 'I') rowData.totalI += 1;
         if (finalStatus === 'S') rowData.totalS += 1;
         if (finalStatus === 'C') rowData.totalC += 1;
+        if (finalStatus === 'NO CO') rowData.totalNoCo += 1;
         if (finalStatus === 'NO CO') alertCount += 1;
       });
 
@@ -750,17 +752,20 @@ export default function App() {
                       })}
                       
                       {/* SUMMARY HEADERS - Sticky Right */}
-                      <th className="px-3 py-3.5 text-center bg-indigo-50 dark:bg-zinc-850 text-indigo-900 dark:text-indigo-450 sticky right-[225px] z-30 font-bold border-l border-indigo-200 dark:border-zinc-850 w-[70px] min-w-[70px] max-w-[70px]">
+                      <th className="px-3 py-3.5 text-center bg-indigo-50 dark:bg-zinc-850 text-indigo-900 dark:text-indigo-450 sticky right-[275px] z-30 font-bold border-l border-indigo-200 dark:border-zinc-850 w-[70px] min-w-[70px] max-w-[70px]">
                         Total HK
                       </th>
-                      <th className="px-3 py-3.5 text-center bg-purple-50 dark:bg-zinc-850 text-purple-900 dark:text-purple-400 sticky right-[175px] z-30 font-bold border-l border-purple-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
+                      <th className="px-3 py-3.5 text-center bg-purple-50 dark:bg-zinc-850 text-purple-900 dark:text-purple-400 sticky right-[225px] z-30 font-bold border-l border-purple-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
                         Izin
                       </th>
-                      <th className="px-3 py-3.5 text-center bg-sky-50 dark:bg-zinc-850 text-sky-900 dark:text-sky-400 sticky right-[125px] z-30 font-bold border-l border-sky-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
+                      <th className="px-3 py-3.5 text-center bg-sky-50 dark:bg-zinc-850 text-sky-900 dark:text-sky-400 sticky right-[175px] z-30 font-bold border-l border-sky-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
                         Sakit
                       </th>
-                      <th className="px-3 py-3.5 text-center bg-teal-50 dark:bg-zinc-850 text-teal-900 dark:text-teal-450 sticky right-[75px] z-30 font-bold border-l border-teal-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
+                      <th className="px-3 py-3.5 text-center bg-teal-50 dark:bg-zinc-850 text-teal-900 dark:text-teal-450 sticky right-[125px] z-30 font-bold border-l border-teal-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
                         Cuti
+                      </th>
+                      <th className="px-3 py-3.5 text-center bg-amber-50 dark:bg-zinc-850 text-amber-900 dark:text-amber-400 sticky right-[75px] z-30 font-bold border-l border-amber-200/40 dark:border-zinc-850 w-[50px] min-w-[50px] max-w-[50px]">
+                        NO CO
                       </th>
                       <th className="px-3 py-3.5 text-center bg-rose-50 dark:bg-zinc-850 text-rose-900 dark:text-rose-455 sticky right-0 z-30 font-bold border-l border-rose-200/40 dark:border-zinc-850 w-[75px] min-w-[75px] max-w-[75px]">
                         Terlambat
@@ -818,17 +823,20 @@ export default function App() {
                         })}
                         
                         {/* SUMMARY COLUMNS - Sticky Right */}
-                        <td className="px-3 py-2 text-center bg-indigo-50 dark:bg-indigo-950 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900 font-extrabold text-indigo-800 dark:text-indigo-400 sticky right-[225px] z-10 border-l border-indigo-100 dark:border-indigo-900 text-xs w-[70px] min-w-[70px] max-w-[70px] transition-colors duration-150">
+                        <td className="px-3 py-2 text-center bg-indigo-50 dark:bg-indigo-950 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900 font-extrabold text-indigo-800 dark:text-indigo-400 sticky right-[275px] z-10 border-l border-indigo-100 dark:border-indigo-900 text-xs w-[70px] min-w-[70px] max-w-[70px] transition-colors duration-150">
                           {emp.totalHk}
                         </td>
-                        <td className="px-3 py-2 text-center bg-purple-50 dark:bg-purple-950 group-hover:bg-purple-100 dark:group-hover:bg-purple-900 text-purple-700 dark:text-purple-400 font-bold sticky right-[175px] z-10 border-l border-purple-100 dark:border-purple-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
+                        <td className="px-3 py-2 text-center bg-purple-50 dark:bg-purple-950 group-hover:bg-purple-100 dark:group-hover:bg-purple-900 text-purple-700 dark:text-purple-400 font-bold sticky right-[225px] z-10 border-l border-purple-100 dark:border-purple-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
                           {emp.totalI}
                         </td>
-                        <td className="px-3 py-2 text-center bg-sky-50 dark:bg-sky-950 group-hover:bg-sky-100 dark:group-hover:bg-sky-900 text-sky-700 dark:text-sky-400 font-bold sticky right-[125px] z-10 border-l border-sky-100 dark:border-sky-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
+                        <td className="px-3 py-2 text-center bg-sky-50 dark:bg-sky-950 group-hover:bg-sky-100 dark:group-hover:bg-sky-900 text-sky-700 dark:text-sky-400 font-bold sticky right-[175px] z-10 border-l border-sky-100 dark:border-sky-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
                           {emp.totalS}
                         </td>
-                        <td className="px-3 py-2 text-center bg-teal-50 dark:bg-teal-950 group-hover:bg-teal-100 dark:group-hover:bg-teal-900 text-teal-700 dark:text-teal-455 font-bold sticky right-[75px] z-10 border-l border-teal-100 dark:border-teal-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
+                        <td className="px-3 py-2 text-center bg-teal-50 dark:bg-teal-950 group-hover:bg-teal-100 dark:group-hover:bg-teal-900 text-teal-700 dark:text-teal-455 font-bold sticky right-[125px] z-10 border-l border-teal-100 dark:border-teal-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
                           {emp.totalC}
+                        </td>
+                        <td className="px-3 py-2 text-center bg-amber-50 dark:bg-amber-950 group-hover:bg-amber-100 dark:group-hover:bg-amber-900 text-amber-700 dark:text-amber-400 font-bold sticky right-[75px] z-10 border-l border-amber-100 dark:border-amber-900 text-xs w-[50px] min-w-[50px] max-w-[50px] transition-colors duration-150">
+                          {emp.totalNoCo}
                         </td>
                         <td className="px-3 py-2 text-center bg-rose-50 dark:bg-rose-955 group-hover:bg-rose-100 dark:group-hover:bg-rose-900 text-rose-800 dark:text-rose-400 font-extrabold sticky right-0 z-10 border-l border-rose-150 dark:border-rose-900 text-xs w-[75px] min-w-[75px] max-w-[75px] transition-colors duration-150">
                           {emp.totalTerlambat}
