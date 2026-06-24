@@ -78,6 +78,11 @@ export default function App() {
     return hrs * 3600 + mins * 60 + secs;
   };
 
+  const titleCase = (str) => {
+    if (!str) return str;
+    return str.replace(/\S+/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+  };
+
   const parseDate = (dateStr) => {
     if (!dateStr) return new Date(0);
     const parts = dateStr.split('-');
@@ -205,7 +210,7 @@ export default function App() {
       const fingerName = row.Nama;
       if (!fingerName) return;
       
-      const officialName = nameMapping[fingerName] || fingerName;
+      const officialName = titleCase(nameMapping[fingerName] || fingerName);
       
       if (!employeeMap[officialName]) {
         employeeMap[officialName] = {
