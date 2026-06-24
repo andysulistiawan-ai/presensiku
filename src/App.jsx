@@ -725,11 +725,12 @@ export default function App() {
                   <thead className="text-[11px] text-slate-650 dark:text-zinc-400 uppercase bg-slate-50 dark:bg-zinc-850 sticky top-0 z-20 shadow-xs border-b border-slate-200/80 dark:border-zinc-800">
                     <tr>
                       {/* Name Header - Sticky Left 1 */}
-                      <th className="px-4 py-3.5 border-r border-slate-200/60 dark:border-zinc-800 sticky left-0 bg-slate-50 dark:bg-zinc-850 z-30 w-[160px] min-w-[160px] max-w-[160px] truncate font-bold text-slate-700 dark:text-zinc-300">
-                        Nama (Fingerprint)
+                      <th className="px-3 py-3.5 border-r border-slate-200/60 dark:border-zinc-800 sticky left-0 bg-slate-50 dark:bg-zinc-850 z-30 w-[110px] min-w-[110px] max-w-[110px] font-bold text-slate-700 dark:text-zinc-300">
+                        <div className="leading-tight">NAMA</div>
+                        <div className="text-[8px] font-semibold text-slate-500 dark:text-zinc-500">(FINGERPRINT)</div>
                       </th>
                       {/* Official Name Header - Sticky Left 2 */}
-                      <th className="px-4 py-3.5 border-r border-slate-200/60 dark:border-zinc-800 sticky left-[160px] bg-indigo-50 dark:bg-zinc-850 text-indigo-900 dark:text-indigo-450 z-30 w-[180px] min-w-[180px] max-w-[180px] truncate font-bold">
+                      <th className="px-3 py-3.5 border-r border-slate-200/60 dark:border-zinc-800 sticky left-[110px] bg-indigo-50 dark:bg-zinc-850 text-indigo-900 dark:text-indigo-450 z-30 w-[130px] min-w-[130px] max-w-[130px] truncate font-bold">
                         Nama Resmi
                       </th>
                       
@@ -776,11 +777,11 @@ export default function App() {
                     {processedData.employees.map((emp, idx) => (
                       <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-zinc-850/40 group transition-all duration-150">
                         {/* Name - Sticky Left 1 */}
-                        <td className="px-4 py-2 border-r border-slate-200/60 dark:border-zinc-800 sticky left-0 bg-white dark:bg-zinc-900 group-hover:bg-slate-50 dark:group-hover:bg-zinc-850 z-10 text-slate-500 dark:text-zinc-400 text-xs w-[160px] min-w-[160px] max-w-[160px] truncate transition-colors duration-150">
+                        <td className="px-3 py-2 border-r border-slate-200/60 dark:border-zinc-800 sticky left-0 bg-white dark:bg-zinc-900 group-hover:bg-slate-50 dark:group-hover:bg-zinc-850 z-10 text-slate-500 dark:text-zinc-400 text-xs w-[110px] min-w-[110px] max-w-[110px] truncate transition-colors duration-150">
                           {emp.originalName}
                         </td>
                         {/* Official Name - Sticky Left 2 */}
-                        <td className="px-4 py-2 border-r border-slate-200/60 dark:border-zinc-800 sticky left-[160px] bg-indigo-50 dark:bg-zinc-900 group-hover:bg-indigo-100 dark:group-hover:bg-zinc-850 z-10 font-bold text-indigo-950 dark:text-indigo-200 text-xs w-[180px] min-w-[180px] max-w-[180px] truncate transition-colors duration-150">
+                        <td className="px-3 py-2 border-r border-slate-200/60 dark:border-zinc-800 sticky left-[110px] bg-indigo-50 dark:bg-zinc-900 group-hover:bg-indigo-100 dark:group-hover:bg-zinc-850 z-10 font-bold text-indigo-950 dark:text-indigo-200 text-xs w-[130px] min-w-[130px] max-w-[130px] truncate transition-colors duration-150">
                           {emp.officialName}
                         </td>
                         
