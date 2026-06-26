@@ -306,6 +306,7 @@ export default function App() {
         if (finalStatus === 'I') rowData.totalI += 1;
         if (finalStatus === 'S') rowData.totalS += 1;
         if (finalStatus === 'C') rowData.totalC += 1;
+        if (finalStatus === '0.5 C') rowData.totalC += 0.5;
         if (finalStatus === 'NO CO') rowData.totalNoCo += 1;
         if (finalStatus === 'NO CO') alertCount += 1;
         if (finalStatus === '0') rowData.totalTdkAbsen += 1;
@@ -463,7 +464,7 @@ export default function App() {
   };
 
   // --- Dropdown Options & Coloring ---
-  const statusOptions = ['0', '1', 'NO CO', '0.5', 'S', 'I', 'C'];
+  const statusOptions = ['0', '1', 'NO CO', '0.5', 'S', 'I', 'C', '0.5 C'];
 
   const getStatusColor = (status) => {
     switch(status) {
@@ -481,6 +482,8 @@ export default function App() {
         return 'bg-purple-100 dark:bg-purple-950/40 text-purple-800 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-950/60 border-purple-300/50 dark:border-purple-800/40';
       case 'C': 
         return 'bg-teal-100 dark:bg-teal-950/40 text-teal-800 dark:text-teal-300 hover:bg-teal-200 dark:hover:bg-teal-950/60 border-teal-300/50 dark:border-teal-800/40';
+      case '0.5 C': 
+        return 'bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-950/50 border-teal-200/50 dark:border-teal-800/30';
       default: 
         return 'bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300 border-slate-200 dark:border-zinc-700';
     }
